@@ -25,12 +25,12 @@ const App = (() => {
     )
   const q3 = new Question(
     'What does CSS stand for?',
-    ['Cascading style sheets','cassarole super sexy', 'calander son son','cant suck socks'],
+    ['Cascading style sheets','cassarole super sexy', 'cascading super sheet','creepy sour spaghetti'],
     0
     )
   const q4 = new Question(
     'the full form of HTML is...?',
-    ['hey the mail launched','here the markup looks','Hyper Text Markup Language','something'],
+    ['hey the mail launched','here the markup looks','Hyper Text Markup Language','Hurry Type My Letter'],
     2
     )
   const q5 = new Question(
