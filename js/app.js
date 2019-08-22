@@ -15,34 +15,34 @@ const App = (() => {
 
   const q1 = new Question(
     'Who was the first president of the united states?',
-    ['Barack Obama','John Denver','George Bush','Goerge Washington'],
+    ['Barack Obama', 'John Denver', 'George Bush', 'Goerge Washington'],
     3
-    )
+  )
   const q2 = new Question(
     'When was javascript created?',
-    ['June 1995','May 1995','July 1885','Sep 1996'],
+    ['June 1995', 'May 1995', 'July 1885', 'Sep 1996'],
     1
-    )
+  )
   const q3 = new Question(
     'What does CSS stand for?',
-    ['Cascading style sheets','cassarole super sexy', 'cascading super sheet','creepy sour spaghetti'],
+    ['Cascading style sheets', 'cassarole super sexy', 'cascading super sheet', 'creepy sour spaghetti'],
     0
-    )
+  )
   const q4 = new Question(
     'the full form of HTML is...?',
-    ['hey the mail launched','here the markup looks','Hyper Text Markup Language','Hurry Type My Letter'],
+    ['hey the mail launched', 'here the markup looks', 'Hyper Text Markup Language', 'Hurry Type My Letter'],
     2
-    )
+  )
   const q5 = new Question(
     'console.log(typeof []) would return?',
-    ['Array','Null','String','Object'],
+    ['Array', 'Null', 'String', 'Object'],
     3
-    )
+  )
 
   const quiz = new Quiz([q1, q2, q3, q4, q5]);
 
   const listener = _ => {
-    nextButtonEl.addEventListener('click', function() {
+    nextButtonEl.addEventListener('click', function () {
       const selectedRadioElem = document.querySelector('input[name="choice"]:checked');
       if (selectedRadioElem) {
         const key = Number(selectedRadioElem.getAttribute('data-order'));
@@ -51,7 +51,7 @@ const App = (() => {
       }
     })
 
-    restartButtonEl.addEventListener('click', function() {
+    restartButtonEl.addEventListener('click', function () {
       quiz.reset();
       renderAll();
       nextButtonEl.style.opacity = 1;
@@ -90,22 +90,22 @@ const App = (() => {
   }
 
   const getPercentage = (num1, num2) => {
-    return Math.round((num1/num2) * 100);
+    return Math.round((num1 / num2) * 100);
   }
 
   const launch = (width, maxPercentage) => {
-    let loadingBar = setInterval(function() {
+    let loadingBar = setInterval(function () {
       if (width > maxPercentage) {
         clearInterval(loadingBar);
       } else {
         width++;
         progressInnerEl.style.width = width + '%';
       }
-    },3)
+    }, 3)
   }
 
   const renderProgress = _ => {
-    const currentWidth = getPercentage(quiz.currentIndex, quiz.questions.length); 
+    const currentWidth = getPercentage(quiz.currentIndex, quiz.questions.length);
     launch(0, currentWidth);
   }
 
@@ -118,7 +118,7 @@ const App = (() => {
   }
 
   const renderAll = _ => {
-    if(quiz.hasEnded()) {
+    if (quiz.hasEnded()) {
       renderEndScreen();
     } else {
       renderQuestion();
@@ -127,7 +127,7 @@ const App = (() => {
       renderProgress();
     }
   }
-  
+
   return {
     renderAll: renderAll,
     listeners: listener
